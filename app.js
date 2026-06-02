@@ -63,13 +63,6 @@ app.use(globalErrorHandler);
 
 module.exports = app;
 
-// install helmet for security
-/**
- * 1. npm install helmet
- * 2. require helmet
- * 3. call it function in the app.use
- */
-
 // install express mongo sanitize (call it in app.use)
 // install xss-clean (call it in app.use)
 // install hpp to work against http parameter pollution. (call it in app.use and towards the end)

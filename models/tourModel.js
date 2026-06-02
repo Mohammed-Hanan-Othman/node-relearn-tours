@@ -153,4 +153,14 @@ module.exports = Tour;
 
 /**
  * 1. GeoJSON for location data (must have type and coordinates)
+ *
+ * 2. Set up guides field with type mongoose shema object id to store only the ids of guides
+ *
+ * 3. Set it to ref User
+ *
+ * 4. apply populate to guides field in controller method to reference user documents into the guides
+ *
+ * 5. set populate path to guides and use select to exclude fields
+ *
+ * 6. better still set it as a pre find middleware so we don't repeat ourselves lol
  */
