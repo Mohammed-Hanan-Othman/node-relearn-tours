@@ -138,7 +138,7 @@ tourSchema.pre(/^find/, function (next) {
 });
 
 tourSchema.pre(/^find/, function (next) {
-  this.populate({ path: "guides" });
+  this.populate({ path: "guides", select: "-__v -_id -passwordChangedAt" });
   next();
 });
 tourSchema.post(/^find/, function (docs, next) {
