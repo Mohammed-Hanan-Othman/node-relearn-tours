@@ -39,10 +39,11 @@ const reviewSchema = new mongoose.Schema(
 // Allowing a pre-find hook for population
 reviewSchema.pre(/^find/, function (next) {
   // this.populate({ path: "tour user", select: "-__v -_id -passwordChangedAt" });
-  this.populate({ path: "tour", select: "name createdAt -_id" }).populate({
+  this.populate({
     path: "user",
     select: "name -_id",
   });
+  // .populate({ path: "tour", select: "name createdAt -_id" });
   next();
 });
 

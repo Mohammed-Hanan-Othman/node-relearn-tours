@@ -126,6 +126,7 @@ tourSchema.virtual("reviews", {
   foreignField: "tour",
   localField: "_id",
 });
+
 // Document middleware.
 tourSchema.pre("save", function (next) {
   // We would require a slugify package vid105.

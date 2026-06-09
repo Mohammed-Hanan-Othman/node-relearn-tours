@@ -67,3 +67,4 @@ module.exports = app;
 // install xss-clean (call it in app.use)
 // install hpp to work against http parameter pollution. (call it in app.use and towards the end)
 //  you can whitelist some parameters
+// Personally decided not to do merge params for the reviews
