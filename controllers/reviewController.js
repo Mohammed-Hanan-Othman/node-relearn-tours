@@ -25,7 +25,7 @@ exports.getAllReviews = catchAsync(async (req, res, next) => {
     return next(new AppError("No associated tour found", 404));
   }
 
-  const features = new APIFeatures(Review.find(), req.query)
+  const features = new APIFeatures(Review.find({ tour: tourId }), req.query)
     .filter()
     .sort()
     .limitFields()
