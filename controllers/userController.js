@@ -48,6 +48,19 @@ exports.updateMe = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.getMe = catchAsync(async (req, res, next) => {
+  // Get id of current user.
+  // Fetch the data
+  const myId = req.user.id;
+  const me = await User.findById(myId, { _id: 0, __v: 0 });
+
+  res.status(200).json({
+    status: "Success",
+    message: "User retrieved successfully",
+    data: me,
+  });
+});
+
 exports.deleteMe = catchAsync(async (req, res, next) => {
   // find user.id and then update the active property and set it to false
   const deletedUser = await User.findByIdAndUpdate(req.user._id, {
