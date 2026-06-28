@@ -18,7 +18,11 @@ tourRouter
 tourRouter
   .route("/")
   .get(authController.protectRoute, tourController.getAllTours)
-  .post(tourController.createTour);
+  .post(
+    authController.protectRoute,
+    authController.restrictTo("admin"),
+    tourController.createTour,
+  );
 
 tourRouter
   .route("/:id")
