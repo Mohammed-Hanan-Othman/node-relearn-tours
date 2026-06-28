@@ -115,6 +115,9 @@ const tourSchema = new mongoose.Schema(
   },
 );
 
+// Create index on price for ascending order
+tourSchema.index({ price: 1 });
+
 // Adding a virtual property
 tourSchema.virtual("durationWeeks").get(function () {
   return this.duration / 7;
