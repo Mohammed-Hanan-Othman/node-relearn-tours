@@ -36,6 +36,9 @@ const reviewSchema = new mongoose.Schema(
   },
 );
 
+// Set index on review schema to stop duplicate reviews
+reviewSchema.index({ tour: 1, user: 1 }, { unique: true });
+
 // Allowing a pre-find hook for population
 reviewSchema.pre(/^find/, function (next) {
   // this.populate({ path: "tour user", select: "-__v -_id -passwordChangedAt" });
