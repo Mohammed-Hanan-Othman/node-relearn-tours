@@ -17,17 +17,9 @@ userRouter.patch(
 );
 
 userRouter.get("/me", authController.protectRoute, userController.getMe);
-userRouter.patch(
-  "/updateme",
-  authController.protectRoute,
-  userController.updateMe,
-);
+userRouter.patch("/me", authController.protectRoute, userController.updateMe);
+userRouter.delete("/me", authController.protectRoute, userController.deleteMe);
 
-userRouter.delete(
-  "/deleteme",
-  authController.protectRoute,
-  userController.deleteMe,
-);
 userRouter.get("/test", (req, res, next) => {
   res.send("All is fine for now.");
 });
