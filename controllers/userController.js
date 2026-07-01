@@ -27,14 +27,17 @@ exports.updateMe = catchAsync(async (req, res, next) => {
       new AppError("For password updates, use `passwordUpdateLink`", 400),
     );
   }
-
   // perform the update
-  const { name, email } = req.body; // will create a filter object function
-  const newObj = { name, email };
+  // const { name, email, photo } = req.body; // will create a filter object function
+  // const newObj = { name, email };
   // or we can use this { $set: { name } },
+  if (req.file) {
+    req.body.photo = req.file.filename;
+  }
   const updatedUser = await User.findByIdAndUpdate(
     req.user._id,
-    { name },
+    //{ name },
+    req.body,
     { new: true, runValidators: true },
   );
 
